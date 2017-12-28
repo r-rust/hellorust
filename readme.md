@@ -12,6 +12,8 @@ This is perfect for R because we can compile and link all rust code at build-tim
 
 ## Prerequisites
 
+*NOTE*: `cargo` is only needed at __build-time__. Rust has __no runtime dependencies__.
+
 To install cargo on MacOS use homebrew:
 
 ```
