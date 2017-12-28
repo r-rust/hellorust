@@ -1,0 +1,5 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^src/mylib/target
+\.lock$
+\.rs\.bk$

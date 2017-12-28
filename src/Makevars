@@ -1,0 +1,12 @@
+STATLIB = mylib/release/libmylib.a
+PKG_LIBS = -Lmylib/target/release -lmylib -lresolv
+
+all: clean
+
+$(SHLIB): $(STATLIB)
+
+$(STATLIB):
+	cargo build --release --manifest-path=mylib/Cargo.toml
+
+clean:
+	rm -f $(SHLIB) $(STATLIB) $(OBJECTS)

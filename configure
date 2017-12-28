@@ -1,0 +1,14 @@
+#!/bin/bash
+if [ $(command -v cargo) ]; then
+  cargo --version
+else
+  echo "--------------------------------------------------------------------"
+  echo "Cargo not found on PATH. Please install cargo / rustc:"
+  echo ""
+  echo " - brew install rustc (MacOS)"
+  echo " - sudo apt-get install cargo (Debian/Ubuntu)"
+  echo " - sudo yum install cargo (Fedora/CentOS)"
+  echo "--------------------------------------------------------------------"
+  echo ""
+  exit 1;
+fi

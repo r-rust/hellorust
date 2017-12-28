@@ -1,0 +1,9 @@
+[package]
+name = "mylib"
+version = "0.1.0"
+authors = ["Jeroen <jeroenooms@gmail.com>"]
+
+[lib]
+crate-type = ["staticlib"]
+
+[dependencies]
