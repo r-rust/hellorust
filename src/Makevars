@@ -1,19 +1,12 @@
-TARGETDIR = $(subst 64,/x86_64-pc-windows-gnu,$(subst 32,/i686-pc-windows-gnu,$(WIN)))
-TARGETPATH = mylib/target$(TARGETDIR)/release
-TARGETFLAGS = $(subst /,--target=,$(TARGETDIR))
-TARGET = $(subst /,,$(TARGETDIR))
-STATLIB = $(TARGETPATH)/libmylib.lib
-
-PKG_LIBS = -L$(TARGETPATH) -lmylib	-lws2_32 -ladvapi32 -luserenv
-
-#PKG_LIBS = -Lmylib/target/release -lmylib -lresolv
+STATLIB = mylib/release/libmylib.a
+PKG_LIBS = -Lmylib/target/release -lmylib -lresolv
 
 all: clean
 
 $(SHLIB): $(STATLIB)
 
 $(STATLIB):
-	cargo build $(TARGETFLAGS) --release --manifest-path=mylib/Cargo.toml
+	cargo build --release --manifest-path=mylib/Cargo.toml
 
 clean:
 	rm -Rf $(SHLIB) $(STATLIB) $(OBJECTS) mylib/target
