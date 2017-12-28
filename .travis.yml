@@ -1,0 +1,20 @@
+language: r
+cache: packages
+latex: false
+fortran: false
+pandoc: false
+
+matrix:
+  include:
+    - os: linux
+      dist: precise
+    - os: linux
+      dist: trusty
+    - os: osx
+      osx_image: xcode9.2
+      brew_packages: rustc
+
+addons:
+  apt:
+    packages:
+      - cargo
