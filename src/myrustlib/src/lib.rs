@@ -1,10 +1,5 @@
-use std::ffi::CString;
-use std::os::raw::c_char;
+// Modules are other .rs source files
+mod hello;
 
-#[no_mangle]
-pub extern fn string_from_rust() -> *const c_char {
-    let s = CString::new("Hello ピカチュウ !").unwrap();
-    let p = s.as_ptr();
-    std::mem::forget(s);
-    p
-}
+// Export symbols for use by R
+pub use hello::string_from_rust;
