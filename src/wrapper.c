@@ -2,9 +2,21 @@
 #define STRICT_R_HEADERS
 #include <Rinternals.h>
 
-// Where you define the C headers
-#include "mylib/mylib.h"
+// Import C headers for rust API
+#include "myrustlib/api.h"
 
-SEXP hello_wrapper(SEXP name){
+// Actual Wrapper
+SEXP hello_wrapper(){
   return Rf_ScalarString(Rf_mkCharCE(string_from_rust(), CE_UTF8));
+}
+
+// Standard R package stuff
+static const R_CallMethodDef CallEntries[] = {
+  {"hello_wrapper", (DL_FUNC) &hello_wrapper, 0},
+  {NULL, NULL, 0}
+};
+
+void R_init_hellorust(DllInfo *dll) {
+  R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
+  R_useDynamicSymbols(dll, FALSE);
 }

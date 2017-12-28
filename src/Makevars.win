@@ -1,17 +1,14 @@
-TARGETDIR = $(subst 64,/x86_64-pc-windows-gnu,$(subst 32,/i686-pc-windows-gnu,$(WIN)))
-TARGETPATH = mylib/target$(TARGETDIR)/release
-TARGETFLAGS = $(subst /,--target=,$(TARGETDIR))
-TARGET = $(subst /,,$(TARGETDIR))
-STATLIB = $(TARGETPATH)/libmylib.lib
-
-PKG_LIBS = -L$(TARGETPATH) -lmylib	-lws2_32 -ladvapi32 -luserenv
+TARGET = $(subst 64,x86_64-pc-windows-gnu,$(subst 32,i686-pc-windows-gnu,$(WIN)))
+LIBDIR = myrustlib/target/$(TARGET)/release
+STATLIB = $(LIBDIR)/libmyrustlib.lib
+PKG_LIBS = -L$(LIBDIR) -lmyrustlib -lws2_32 -ladvapi32 -luserenv
 
 all: clean
 
 $(SHLIB): $(STATLIB)
 
 $(STATLIB):
-	cargo build $(TARGETFLAGS) --release --manifest-path=mylib/Cargo.toml
+	cargo build --target=$(TARGET) --release --manifest-path=myrustlib/Cargo.toml
 
 clean:
-	rm -Rf $(SHLIB) $(STATLIB) $(OBJECTS) mylib/target
+	rm -Rf $(SHLIB) $(STATLIB) $(OBJECTS) myrustlib/target

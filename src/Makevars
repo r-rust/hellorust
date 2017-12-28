@@ -1,12 +1,13 @@
-STATLIB = mylib/release/libmylib.a
-PKG_LIBS = -Lmylib/target/release -lmylib -lresolv
+LIBDIR = myrustlib/target/release
+STATLIB = $(LIBDIR)/libmyrustlib.a
+PKG_LIBS = -L$(LIBDIR) -lmyrustlib -lresolv
 
 all: clean
 
 $(SHLIB): $(STATLIB)
 
 $(STATLIB):
-	cargo build --release --manifest-path=mylib/Cargo.toml
+	cargo build --release --manifest-path=myrustlib/Cargo.toml
 
 clean:
-	rm -Rf $(SHLIB) $(STATLIB) $(OBJECTS) mylib/target
+	rm -Rf $(SHLIB) $(STATLIB) $(OBJECTS) myrustlib/target

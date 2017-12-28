@@ -1,6 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^src/mylib/target
+^src/myrustlib/target
 \.lock$
 \.rs\.bk$
 ^readme.md$

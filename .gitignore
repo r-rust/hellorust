@@ -5,4 +5,4 @@ src/*.o
 src/*.so
 src/*.dll
 src/*.a
-src/mylib/target/*
+src/myrustlib/target/*
