@@ -1,6 +1,6 @@
 Package: hellorust
 Type: Package
-Title: Minimal Example of Calling Rust from R
+Title: Minimal Example of Calling Rust from R using Cargo
 Version: 0.1.0
 Author: Jeroen Ooms
 Maintainer: Jeroen Ooms <jeroen@berkeley.edu>
