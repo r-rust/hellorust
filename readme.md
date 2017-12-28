@@ -12,9 +12,7 @@ This is perfect for R because we can compile and link all rust code at build-tim
 
 ## Prerequisites
 
-*NOTE*: `cargo` is only needed at __build-time__. Rust has __no runtime dependencies__.
-
-To install cargo on MacOS use homebrew:
+Note that `cargo` is only needed at __build-time__. Rust has __no runtime dependencies__. To install on MacOS use homebrew:
 
 ```
 brew install rust
@@ -34,6 +32,16 @@ sudo yum install cargo
 
 On CentOS you first need to enable EPEL via `sudo yum install epel-release`.
 
+### Windows
+
+In order for rust to work with R you need to install the toolchain with the GNU (gcc) abi, **not the MSVC flavor**. The `x86_64` target compiles win64 binary code and the `i686` for win32 binaries.
+
+```
+rustup target add x86_64-pc-windows-gnu
+rustup target add i686-pc-windows-gnu
+```
+
+The Rust installers for Windows are still changing frequently. I found this [readme](https://github.com/rust-lang-nursery/rustup.rs/blob/master/README.md#working-with-rust-on-windows) has recent instructions.
 
 ## Package Structure
 
