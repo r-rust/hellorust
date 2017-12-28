@@ -1,12 +1,12 @@
-STATLIB = mylib/release/libmylib.a
+TARGETDIR = $(subst 64,/x86_64-pc-windows-gnu,$(subst 32,/i686-pc-windows-gnu,$(WIN)))
+TARGETPATH = mylib/target$(TARGETDIR)/release
+TARGETFLAGS = $(subst /,--target=,$(TARGETDIR))
+TARGET = $(subst /,,$(TARGETDIR))
+STATLIB = $(TARGETPATH)/libmylib.lib
 
-ifdef WIN
-TARGET = $(subst 64,x86_64-pc-windows-gnu,$(subst 32,i686-pc-windows-gnu,$(WIN)))
-PKG_LIBS = -Lmylib/target/$(TARGET)/release -lmylib	-lws2_32 -ladvapi32 -luserenv
-TARGETFLAGS = --target=$(TARGET)
-else
-PKG_LIBS = -Lmylib/target/release -lmylib -lresolv
-endif
+PKG_LIBS = -L$(TARGETPATH) -lmylib	-lws2_32 -ladvapi32 -luserenv
+
+#PKG_LIBS = -Lmylib/target/release -lmylib -lresolv
 
 all: clean
 
@@ -16,4 +16,4 @@ $(STATLIB):
 	cargo build $(TARGETFLAGS) --release --manifest-path=mylib/Cargo.toml
 
 clean:
-	rm -f $(SHLIB) $(STATLIB) $(OBJECTS)
+	rm -Rf $(SHLIB) $(STATLIB) $(OBJECTS) mylib/target
