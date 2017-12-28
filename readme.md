@@ -1,4 +1,7 @@
-# Hello Rust [![Build Status](https://travis-ci.org/jeroen/hellorust.svg)](https://travis-ci.org/jeroen/hellorust)
+# Hello Rust
+
+[![Build Status](https://travis-ci.org/jeroen/hellorust.svg)](https://travis-ci.org/jeroen/hellorust)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/jeroen/hellorust)](https://ci.appveyor.com/project/jeroen/hellorust)
 
 > Minimal Example of Calling Rust from R using Cargo
 
@@ -34,14 +37,19 @@ On CentOS you first need to enable EPEL via `sudo yum install epel-release`.
 
 ### Windows
 
-In order for rust to work with R you need to install the toolchain with the GNU (gcc) abi, **not the MSVC flavor**. The `x86_64` target compiles win64 binary code and the `i686` for win32 binaries.
+In order for rust to work with R you need to install the toolchain using `rustup` and then add the `x86_64-pc-windows-gnu` and `i686-pc-windows-gnu` targets. First download [rustup-init.exe](https://win.rustup.rs/) and then install the default toolchain:
 
 ```
-rustup target add x86_64-pc-windows-gnu
+rustup-init.exe -y --default-host x86_64-pc-windows-gnu
+```
+
+To compile 32bit packages also add the 32bit version:
+
+```
 rustup target add i686-pc-windows-gnu
 ```
 
-The Rust installers for Windows are still changing frequently. I found this [readme](https://github.com/rust-lang-nursery/rustup.rs/blob/master/README.md#working-with-rust-on-windows) has recent instructions.
+Our [appveyor.yml](appveyor.yml) file shows this live in action. For more about rust on Windows see [here](https://github.com/rust-lang-nursery/rustup.rs/blob/master/README.md#working-with-rust-on-windows).
 
 ## Package Structure
 
