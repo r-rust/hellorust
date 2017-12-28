@@ -13,7 +13,26 @@ The standard rust toolchain includes a great package manager `cargo` with a corr
 
 This is perfect for R because we can compile and link all rust code at build-time without any system dependencies. Rust itself has no substantial runtime so the resulting R package is entirely self contained. Indeed, rust has been designed specifically to serve well as an embedded language.
 
-## Prerequisites
+## Package Structure
+
+Simply bundle your rust code into a cargo package (just add a `Cargo.toml` file) and then invoke the build + link as shown in [src/Makevars](src/Makevars).
+
+```
+hellorust
+├─ configure            ← checks if 'cargo' is installed
+├─ src
+│  ├─ mylib             ← bundled cargo package with your code
+│  |  ├─ Cargo.toml     ← add cargo dependencies here
+│  |  ├─ src            ← rust source code
+│  |  └─ mylib.h        ← C headers for rust API
+|  |
+│  ├─ Makevars          ← Ties everything together
+│  └─ wrapper.c         ← C code for R package
+├─ DESCRIPTION
+└─ R                    ← Standard R+C stuff
+```
+
+## Installation
 
 Note that `cargo` is only needed at __build-time__. Rust has __no runtime dependencies__. To install on MacOS use homebrew:
 
@@ -43,32 +62,14 @@ In order for rust to work with R you need to install the toolchain using `rustup
 rustup-init.exe -y --default-host x86_64-pc-windows-gnu
 ```
 
-To compile 32bit packages also add the 32bit version:
+To compile 32bit packages also add the i686 target:
 
 ```
 rustup target add i686-pc-windows-gnu
 ```
 
-Our [appveyor.yml](appveyor.yml) file shows this live in action. For more about rust on Windows see [here](https://github.com/rust-lang-nursery/rustup.rs/blob/master/README.md#working-with-rust-on-windows).
+The [appveyor.yml](appveyor.yml) file shows this live in action. For more information about rust on Windows see [here](https://github.com/rust-lang-nursery/rustup.rs/blob/master/README.md#working-with-rust-on-windows).
 
-## Package Structure
-
-Simply bundle your rust code into a cargo package (just add a `Cargo.toml` file) and then invoke the build + link as shown in [src/Makevars](src/Makevars).
-
-```
-hellorust
-├─ configure            ← checks if 'cargo' is installed
-├─ src
-│  ├─ mylib             ← bundled cargo package with your code
-│  |  ├─ Cargo.toml     ← add cargo dependencies here
-│  |  ├─ src            ← rust source code
-│  |  └─ mylib.h        ← C headers for rust API
-|  |
-│  ├─ Makevars          ← Ties everything together
-│  └─ wrapper.c         ← C code for R package
-├─ DESCRIPTION
-└─ R                    ← Standard R+C stuff
-```
 
 ## Resources
  - [Rust Inside Other Languages](https://doc.rust-lang.org/1.6.0/book/rust-inside-other-languages.html) chapter from official rust documentation
