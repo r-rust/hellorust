@@ -21,10 +21,10 @@ Simply bundle your rust code into a cargo package (just add a `Cargo.toml` file)
 hellorust
 ├─ configure            ← checks if 'cargo' is installed
 ├─ src
-│  ├─ myrustlib             ← bundled cargo package with your code
-│  |  ├─ Cargo.toml     ← add cargo dependencies here
-│  |  ├─ src            ← rust source code
-│  |  └─ api.h          ← C headers for rust API
+│  ├─ myrustlib            ← bundled cargo package with your code
+│  |  ├─ Cargo.toml          ← cargo dependencies and metadata
+│  |  ├─ src                 ← rust source code
+│  |  └─ api.h               ← C headers for exported rust API
 |  |
 │  ├─ Makevars          ← Ties everything together
 │  └─ wrapper.c         ← C code for R package

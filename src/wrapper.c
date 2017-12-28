@@ -5,14 +5,19 @@
 // Import C headers for rust API
 #include "myrustlib/api.h"
 
-// Actual Wrapper
+// Actual Wrappers
 SEXP hello_wrapper(){
   return Rf_ScalarString(Rf_mkCharCE(string_from_rust(), CE_UTF8));
+}
+
+SEXP random_wrapper(){
+  return Rf_ScalarInteger(random_number());
 }
 
 // Standard R package stuff
 static const R_CallMethodDef CallEntries[] = {
   {"hello_wrapper", (DL_FUNC) &hello_wrapper, 0},
+  {"random_wrapper", (DL_FUNC) &random_wrapper, 0},
   {NULL, NULL, 0}
 };
 

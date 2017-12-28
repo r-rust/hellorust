@@ -7,3 +7,5 @@ authors = ["Jeroen <jeroenooms@gmail.com>"]
 crate-type = ["staticlib"]
 
 [dependencies]
+rand = "0.4.1"
+libc = "*"

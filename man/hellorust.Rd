@@ -2,13 +2,17 @@
 % Please edit documentation in R/hello.R
 \name{hello}
 \alias{hello}
+\alias{random}
 \title{Hello Rust!}
 \usage{
 hello()
+
+random()
 }
 \description{
-Invoke a rust function via C.
+Examples of rust functions via C.
 }
 \examples{
 hello()
+random()
 }
