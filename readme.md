@@ -8,9 +8,34 @@ Rust is a modern alternative to C and compiled rust code is ABI compatible with 
 
 The standard rust toolchain includes a great package manager `cargo` with a corresponding registry [crates.io](https://crates.io/). Cargo makes it very easy to build a rust package including all dependencies into a static library that can easily be linked into an R package.
 
-This is perfect for R because we can compile and link the entire rust package at build-time without any system dependencies. Rust itself also has no runtime dependencies beyond what C/C++ has, so the resulting R package is entirely self contained, by design. Indeed, rust has been designed specifically to serve well as an embedded language.
+This is perfect for R because we can compile and link all rust code at build-time without any system dependencies. Rust itself has no substantial runtime so the resulting R package is entirely self contained. Indeed, rust has been designed specifically to serve well as an embedded language.
+
+## Prerequisites
+
+To install cargo on MacOS use homebrew:
+
+```
+brew install rust
+```
+
+And on Debian/Ubuntu:
+
+```
+sudo apt-get install cargo
+```
+
+And on Fedora / CentOS:
+
+```
+sudo yum install cargo
+```
+
+On CentOS you first need to enable EPEL via `sudo yum install epel-release`.
+
 
 ## Package Structure
+
+Simply bundle your rust code into a cargo package (just add a `Cargo.toml` file) and then invoke the build + link as shown in [src/Makevars](src/Makevars).
 
 ```
 hellorust
