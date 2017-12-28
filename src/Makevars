@@ -1,12 +1,19 @@
 STATLIB = mylib/release/libmylib.a
+
+ifdef WIN
+TARGET = $(subst 64,x86_64-pc-windows-gnu,$(subst 32,i686-pc-windows-gnu,$(WIN)))
+PKG_LIBS = -Lmylib/target/$(TARGET)/release -lmylib	-lws2_32 -ladvapi32 -luserenv
+TARGETFLAGS = --target=$(TARGET)
+else
 PKG_LIBS = -Lmylib/target/release -lmylib -lresolv
+endif
 
 all: clean
 
 $(SHLIB): $(STATLIB)
 
 $(STATLIB):
-	cargo build --release --manifest-path=mylib/Cargo.toml
+	cargo build $(TARGETFLAGS) --release --manifest-path=mylib/Cargo.toml
 
 clean:
 	rm -f $(SHLIB) $(STATLIB) $(OBJECTS)
