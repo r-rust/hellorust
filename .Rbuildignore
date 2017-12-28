@@ -3,3 +3,6 @@
 ^src/mylib/target
 \.lock$
 \.rs\.bk$
+^readme.md$
+^.travis.yml$
+^appveyor.yml$
