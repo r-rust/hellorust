@@ -14,10 +14,16 @@ SEXP random_wrapper(){
   return Rf_ScalarInteger(random_number());
 }
 
+SEXP threads_wapper(){
+  run_threads();
+  return R_NilValue;
+}
+
 // Standard R package stuff
 static const R_CallMethodDef CallEntries[] = {
   {"hello_wrapper", (DL_FUNC) &hello_wrapper, 0},
   {"random_wrapper", (DL_FUNC) &random_wrapper, 0},
+  {"threads_wapper", (DL_FUNC) &threads_wapper, 0},
   {NULL, NULL, 0}
 };
 

@@ -3,11 +3,14 @@
 \name{hello}
 \alias{hello}
 \alias{random}
+\alias{runthreads}
 \title{Hello Rust!}
 \usage{
 hello()
 
 random()
+
+runthreads()
 }
 \description{
 Examples of rust functions via C.
@@ -15,4 +18,5 @@ Examples of rust functions via C.
 \examples{
 hello()
 random()
+runthreads()
 }

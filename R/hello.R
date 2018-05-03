@@ -17,3 +17,12 @@ hello <- function() {
 random <- function(){
   .Call(random_wrapper)
 }
+
+#' @export
+#' @rdname hellorust
+#' @examples runthreads()
+#' @useDynLib hellorust threads_wapper
+runthreads <- function(){
+  .Call(threads_wapper)
+  invisible()
+}

@@ -2,5 +2,7 @@
 
 export(hello)
 export(random)
+export(runthreads)
 useDynLib(hellorust,hello_wrapper)
 useDynLib(hellorust,random_wrapper)
+useDynLib(hellorust,threads_wapper)
