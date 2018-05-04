@@ -1,7 +1,7 @@
 # Hello Rust
 
-[![Build Status](https://travis-ci.org/jeroen/hellorust.svg)](https://travis-ci.org/jeroen/hellorust)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/jeroen/hellorust)](https://ci.appveyor.com/project/jeroen/hellorust)
+[![Build Status](https://travis-ci.org/r-rust/hellorust.svg)](https://travis-ci.org/r-rust/hellorust)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/r-rust/hellorust)](https://ci.appveyor.com/project/jeroen/hellorust)
 
 > Minimal Example of Calling Rust from R using Cargo
 
