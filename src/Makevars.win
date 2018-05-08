@@ -1,6 +1,6 @@
 TARGET = $(subst 64,x86_64-pc-windows-gnu,$(subst 32,i686-pc-windows-gnu,$(WIN)))
 LIBDIR = myrustlib/target/$(TARGET)/release
-STATLIB = $(LIBDIR)/libmyrustlib.lib
+STATLIB = $(LIBDIR)/myrustlib.lib
 PKG_LIBS = -L$(LIBDIR) -lmyrustlib -lws2_32 -ladvapi32 -luserenv
 
 all: clean
