@@ -7,9 +7,7 @@
 
 Rust is a modern alternative to C and compiled rust code is ABI compatible with C. Many Rust libraries include C API headers so that the compiled rust code can be called from R/C/C++ as if it were C code.
 
-The [https://github.com/r-rust](https://github.com/r-rust) organization contains more examples!
-
-Also have a look at the [slides](https://jeroen.github.io/erum2018/) about this project presented at eRum2018.
+The [r-rust](https://github.com/r-rust) organization contains several example R packages interfacing with Rust. Also have a look at the [slides](https://jeroen.github.io/erum2018/) about this project presented at eRum2018!
 
 ## Cargo
 
@@ -76,6 +74,7 @@ The [appveyor.yml](appveyor.yml) file shows this live in action. For more inform
 
 
 ## Resources
+ - Erum2018 [slides](https://jeroen.github.io/erum2018/) about this project presented by Jeroen
  - [Rust Inside Other Languages](https://doc.rust-lang.org/1.6.0/book/rust-inside-other-languages.html) chapter from official rust documentation
  - [rustr](https://rustr.org/) is a Rust library that provides a Rust API to work with R.
  - Duncan's proof of concept: [RCallRust](https://github.com/duncantl/RCallRust)
