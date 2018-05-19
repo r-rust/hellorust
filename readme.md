@@ -9,6 +9,8 @@ Rust is a modern alternative to C and compiled rust code is ABI compatible with 
 
 The [https://github.com/r-rust](https://github.com/r-rust) organization contains more examples!
 
+Also have a look at the [slides](https://jeroen.github.io/erum2018/) about this project presented at eRum2018.
+
 ## Cargo
 
 The standard rust toolchain includes a great package manager `cargo` with a corresponding registry [crates.io](https://crates.io/). Cargo makes it very easy to build a rust package including all dependencies into a static library that can easily be linked into an R package.
