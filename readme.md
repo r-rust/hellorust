@@ -54,6 +54,12 @@ And on Fedora / CentOS:
 sudo yum install cargo
 ```
 
+And on Arch:
+
+```
+sudo pacman -Sy cargo
+```
+
 On CentOS you first need to enable EPEL via `sudo yum install epel-release`.
 
 ### Windows
