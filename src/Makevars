@@ -7,7 +7,7 @@ all: clean
 $(SHLIB): $(STATLIB)
 
 $(STATLIB):
-	cargo build --release --manifest-path=myrustlib/Cargo.toml
+	PATH="${PATH}:${HOME}/.cargo/bin" cargo build --release --manifest-path=myrustlib/Cargo.toml
 
 clean:
 	rm -Rf $(SHLIB) $(STATLIB) $(OBJECTS) myrustlib/target
