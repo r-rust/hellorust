@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 if [ $(command -v cargo) ]; then
   cargo --version
 elif [ `uname` = "Darwin" ]; then

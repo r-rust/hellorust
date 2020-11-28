@@ -1,7 +1,6 @@
 # Hello Rust
 
-[![Build Status](https://travis-ci.org/r-rust/hellorust.svg)](https://travis-ci.org/r-rust/hellorust)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/r-rust/hellorust)](https://ci.appveyor.com/project/jeroen/hellorust)
+[![R build status](https://github.com/r-rust/hellorust/workflows/R-CMD-check/badge.svg)](https://github.com/r-rust/hellorust/actions?workflow=R-CMD-check)
 
 > Minimal Example of Calling Rust from R using Cargo
 
@@ -62,7 +61,25 @@ sudo pacman -Sy cargo
 
 On CentOS you first need to enable EPEL via `sudo yum install epel-release`.
 
-### Windows
+## GitHub Actions
+
+To use GitHub actions, you can use the [standard r workflow](https://github.com/r-lib/actions/blob/master/.github/workflows/check-standard.yaml) script in combination with this extra step:
+
+```
+- name: Install Rust
+  uses: actions-rs/toolchain@v1
+  with:
+      toolchain: stable
+      override: true
+
+- name: Add Rtools targets to Rust
+  if: runner.os == 'Windows'
+  run: |
+    rustup target add i686-pc-windows-gnu
+    rustup target add x86_64-pc-windows-gnu
+```
+
+## Installing Rust for R on Windows
 
 In order for rust to work with R you need to install the toolchain using `rustup` and then add the `x86_64-pc-windows-gnu` and `i686-pc-windows-gnu` targets. First download [rustup-init.exe](https://win.rustup.rs/) and then install the default toolchain:
 
@@ -76,10 +93,7 @@ To compile 32bit packages also add the i686 target:
 rustup target add i686-pc-windows-gnu
 ```
 
-The [appveyor.yml](appveyor.yml) file shows this live in action. For more information about rust on Windows see [here](https://github.com/rust-lang-nursery/rustup.rs/blob/master/README.md#working-with-rust-on-windows).
-
-
-## Resources
+## More Resources
  - Erum2018 [slides](https://jeroen.github.io/erum2018/) about this project presented by Jeroen
  - [Rust Inside Other Languages](https://doc.rust-lang.org/1.6.0/book/rust-inside-other-languages.html) chapter from official rust documentation
  - [rustr](https://rustr.org/) is a Rust library that provides a Rust API to work with R.
