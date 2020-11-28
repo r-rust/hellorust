@@ -7,15 +7,14 @@ pandoc: false
 matrix:
   include:
     - os: linux
-      dist: trusty
+      addons:
+        apt:
+          packages:
+            - cargo
     - os: osx
-      osx_image: xcode9.3
+      osx_image: xcode12.2
       brew_packages: rust
     - os: osx
-      osx_image: xcode7.3
-      brew_packages: rust
-
-addons:
-  apt:
-    packages:
-      - cargo
+      osx_image: xcode10.1
+      disable_homebrew: true
+      r_check_args: ""

@@ -1,9 +1,7 @@
 environment:
   matrix:
     - R_VERSION: "patched"
-      RTOOLS_VERSION: 35
     - R_VERSION: "oldrel"
-      RTOOLS_VERSION: 34
 
 # Download script file from GitHub
 init:
