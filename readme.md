@@ -8,30 +8,9 @@ Rust is a modern alternative to C and compiled rust code is ABI compatible with 
 
 The [r-rust](https://github.com/r-rust) organization contains several example R packages interfacing with Rust. Also have a look at the [slides](https://jeroen.github.io/erum2018/) about this project presented at eRum2018!
 
-## Cargo
-
-The standard rust toolchain includes a great package manager `cargo` with a corresponding registry [crates.io](https://crates.io/). Cargo makes it very easy to build a rust package including all dependencies into a static library that can easily be linked into an R package.
-
-This is perfect for R because we can compile and link all rust code at build-time without any system dependencies. Rust itself has no substantial runtime so the resulting R package is entirely self contained. Indeed, rust has been designed specifically to serve well as an embedded language.
-
-## Installing this package
-
-If Rust is available, clone this repository and run the regular `R CMD INSTALL` command:
-
-```
-R CMD INSTALL hellorust
-```
-
-To download and install from within R itself:
-
-```r
-install.packages("remotes")
-remotes::install_github("r-rust/hellorust")
-```
-
 ## Package Structure
 
-Simply bundle your rust code into a cargo package (just add a `Cargo.toml` file) and then R will automatically build the rust modules when the R package is installed (see [src/Makevars](src/Makevars)).
+We simply bundle the rust code into a cargo package (see the `Cargo.toml` file) and then the [src/Makevars](src/Makevars) file is written such that R will automatically build the rust modules when the R package is installed.
 
 ```
 hellorust
@@ -48,7 +27,28 @@ hellorust
 └─ R                    ← Standard R+C stuff
 ```
 
-## Installing Rust / Cargo
+## Installing this package
+
+If Rust is available, clone this repository and run the regular `R CMD INSTALL` command:
+
+```
+R CMD INSTALL hellorust
+```
+
+Alternatively, to download and install from within R itself:
+
+```r
+# install.packages("remotes")
+remotes::install_github("r-rust/hellorust")
+```
+
+## What is Cargo
+
+The standard rust toolchain includes a great package manager `cargo` with a corresponding registry [crates.io](https://crates.io/). Cargo makes it very easy to build a rust package including all dependencies into a static library that can easily be linked into an R package.
+
+This is perfect for R because we can compile and link all rust code at build-time without any system dependencies. Rust itself has no substantial runtime so the resulting R package is entirely self contained. Indeed, rust has been designed specifically to serve well as an embedded language.
+
+## Installing Rust on Linux / MacOS
 
 Note that `cargo` is only needed at __build-time__. Rust has __no runtime dependencies__. To install on MacOS use homebrew:
 
@@ -76,7 +76,7 @@ sudo pacman -Sy cargo
 
 On CentOS you first need to enable EPEL via `sudo yum install epel-release`.
 
-## Setting up Rust for R on Windows
+## Installing Rust for R on Windows
 
 In order for rust to work with R you need to install the toolchain using `rustup` and then add the `x86_64-pc-windows-gnu` and `i686-pc-windows-gnu` targets. First download [rustup-init.exe](https://win.rustup.rs/) and then install the default toolchain:
 
@@ -107,6 +107,12 @@ To use GitHub actions, you can use the [standard r workflow](https://github.com/
     rustup target add i686-pc-windows-gnu
     rustup target add x86_64-pc-windows-gnu
 ```
+
+## In the real world
+
+The [gifski](https://cran.r-project.org/web/packages/gifski/index.html) package has been on CRAN since 2018, and uses this same structure. 
+
+However, do note that for the CRAN release we used a hack in `src/Makevars.win` to download a precompiled version of the gifski crate on Windows, because the CRAN winbuilder did not have a Rust compiler installed.
 
 ## More Resources
  - Erum2018 [slides](https://jeroen.github.io/erum2018/) about this project presented by Jeroen
