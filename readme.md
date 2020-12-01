@@ -117,5 +117,5 @@ However, do note that for the CRAN release we used a hack in `src/Makevars.win` 
 ## More Resources
  - Erum2018 [slides](https://jeroen.github.io/erum2018/) about this project presented by Jeroen
  - [Rust Inside Other Languages](https://doc.rust-lang.org/1.6.0/book/rust-inside-other-languages.html) chapter from official rust documentation
- - [rustr](https://rustr.org/) is a Rust library that provides a Rust API to work with R.
+ - [extendr](https://github.com/extendr): a more advanced R extension interface using Rust
  - Duncan's proof of concept: [RCallRust](https://github.com/duncantl/RCallRust)
