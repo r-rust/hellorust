@@ -1,13 +1,19 @@
 LIBDIR = myrustlib/target/release
 STATLIB = $(LIBDIR)/libmyrustlib.a
-PKG_LIBS = -L$(LIBDIR) -lmyrustlib -lresolv
+PKG_CFLAGS = -pthread
+PKG_LIBS = -L$(LIBDIR) -lmyrustlib -lresolv -pthread
 
-all: clean
+#all: clean
 
 $(SHLIB): $(STATLIB)
 
+# CRAN policy forbids using $HOME
+export CARGO_HOME=$(PWD)/.cargo
+
 $(STATLIB):
 	PATH="${PATH}:${HOME}/.cargo/bin" cargo build --release --manifest-path=myrustlib/Cargo.toml
+	rm -Rf $(CARGO_HOME) || true
+	rm -Rf $(LIBDIR)/build || true
 
 clean:
 	rm -Rf $(SHLIB) $(STATLIB) $(OBJECTS) myrustlib/target

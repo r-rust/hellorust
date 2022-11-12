@@ -2,8 +2,6 @@
 export PATH="$PATH:$HOME/.cargo/bin"
 if [ $(command -v cargo) ]; then
   cargo --version
-elif [ `uname` = "Darwin" ]; then
-  curl "https://autobrew.github.io/scripts/rustc" -sSf | sh
 else
   echo "--------------------------------------------------------------------"
   echo "Cargo not found on PATH. Please install cargo / rustc:"

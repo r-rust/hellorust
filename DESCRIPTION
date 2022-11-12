@@ -8,5 +8,4 @@ Description: Template of R package that calls out to rust via embedded
     Cargo package.
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
 RoxygenNote: 6.0.1
