@@ -5,7 +5,7 @@ Version: 1.0.0
 Author: Jeroen Ooms
 Maintainer: Jeroen Ooms <jeroen@berkeley.edu>
 Description: Template 'R' package that calls out to 'Rust' code in a way that 
-    complies with the CRAN policy. Includes simple examples of passing numbers
+    complies with 'CRAN' policy. Includes simple examples of passing numbers
     and strings from 'Rust' to 'R' and using threads.
 License: MIT + file LICENSE
 URL: https://github.com/r-rust/hellorust
