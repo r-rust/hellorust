@@ -92,15 +92,9 @@ rustup target add i686-pc-windows-gnu
 
 ## GitHub Actions
 
-To use GitHub actions, you can use the [standard r workflow](https://github.com/r-lib/actions/blob/master/.github/workflows/check-standard.yaml) script in combination with this extra step:
+To use GitHub actions, you can use the [standard r workflow](https://github.com/r-lib/actions/blob/HEAD/.github/workflows/check-standard.yaml) script in combination with this extra step:
 
 ```
-- name: Install Rust
-  uses: actions-rs/toolchain@v1
-  with:
-      toolchain: stable
-      override: true
-
 - name: Add Rtools targets to Rust
   if: runner.os == 'Windows'
   run: |
