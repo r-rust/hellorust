@@ -4,9 +4,9 @@
 extern "C" {
 #endif
 
-char * string_from_rust();
-int32_t random_number();
-void run_threads();
+char * string_from_rust(void);
+int32_t random_number(void);
+void run_threads(void);
 
 #ifdef __cplusplus
 }

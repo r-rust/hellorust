@@ -6,15 +6,15 @@
 #include "myrustlib/api.h"
 
 // Actual Wrappers
-SEXP hello_wrapper(){
+SEXP hello_wrapper(void){
   return Rf_ScalarString(Rf_mkCharCE(string_from_rust(), CE_UTF8));
 }
 
-SEXP random_wrapper(){
+SEXP random_wrapper(void){
   return Rf_ScalarInteger(random_number());
 }
 
-SEXP threads_wapper(){
+SEXP threads_wapper(void){
   run_threads();
   return R_NilValue;
 }
