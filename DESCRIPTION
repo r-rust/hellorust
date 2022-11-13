@@ -1,6 +1,6 @@
 Package: hellorust
 Type: Package
-Title: Minimal Example of Using 'Rust' code in 'R'
+Title: Minimal Example of Using 'Rust' Code in 'R'
 Version: 1.0.0
 Author: Jeroen Ooms
 Maintainer: Jeroen Ooms <jeroen@berkeley.edu>
