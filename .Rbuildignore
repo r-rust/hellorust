@@ -3,7 +3,7 @@
 ^src/myrustlib/target
 \.lock$
 \.rs\.bk$
-^readme.md$
+^README.md$
 ^.travis.yml$
 ^appveyor.yml$
 ^\.github$
