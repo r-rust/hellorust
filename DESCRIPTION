@@ -2,8 +2,8 @@ Package: hellorust
 Type: Package
 Title: Minimal Example of Using 'Rust' Code in 'R'
 Version: 1.0.0
-Author: Jeroen Ooms
-Maintainer: Jeroen Ooms <jeroen@berkeley.edu>
+Authors@R: person("Jeroen", "Ooms", role = c("aut", "cre"), email = "jeroen@berkeley.edu",
+    comment = c(ORCID = "0000-0002-4035-0289"))
 Description: Template 'R' package that calls out to 'Rust' code in a way that 
     complies with 'CRAN' policy. Includes simple examples of passing numbers
     and strings from 'Rust' to 'R' and using threads.

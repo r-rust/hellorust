@@ -12,6 +12,9 @@ random()
 
 runthreads()
 }
+\value{
+a value generated in Rust (a string, random number, and NULL respectively).
+}
 \description{
 Examples of rust functions via C.
 }

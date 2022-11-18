@@ -5,6 +5,7 @@
 #' @export
 #' @rdname hellorust
 #' @examples hello()
+#' @return a value generated in Rust (a string, random number, and NULL respectively).
 #' @useDynLib hellorust hello_wrapper
 hello <- function() {
   .Call(hello_wrapper)
