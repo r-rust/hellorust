@@ -1,12 +1,15 @@
 Package: hellorust
 Type: Package
-Title: Minimal Example of Using 'Rust' Code in 'R'
-Version: 1.0.0
+Title: Minimal Examples of Using Rust Code in R
+Version: 1.0.9000
 Authors@R: person("Jeroen", "Ooms", role = c("aut", "cre"), email = "jeroen@berkeley.edu",
     comment = c(ORCID = "0000-0002-4035-0289"))
-Description: Template 'R' package that calls out to 'Rust' code in a way that 
-    complies with 'CRAN' policy. Includes simple examples of passing numbers
-    and strings from 'Rust' to 'R' and using threads.
+Description: Template R package to use Rust code without any frameworks
+    in a way that complies with CRAN policy. Includes simple examples of
+    passing numbers and strings from Rust to R, and using threads. The 
+    GitHub repository shows how to set up CI on all platforms. This package
+    was presented at Erum2018 <https://jeroen.github.io/erum2018> and first
+    appeared on CRAN in 2022.
 License: MIT + file LICENSE
 URL: https://github.com/r-rust/hellorust
 BugReports: https://github.com/r-rust/hellorust/issues
