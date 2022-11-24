@@ -1,0 +1,32 @@
+
+R version 4.2.2 (2022-10-31) -- "Innocent and Trusting"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin17.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> print_cargo <- function(){
++   home <- Sys.getenv(ifelse(.Platform$OS.type == 'windows', 'USERPROFILE', 'HOME'))
++   cargodir <- file.path(home, '.cargo', 'bin')
++   Sys.setenv(PATH = paste(cargodir, Sys.getenv('PATH'), sep = .Platform$path.sep))
++   cargo <- Sys.which('cargo')
++   if(nchar(cargo)){
++     cat("Found cargo in:", cargo, "\n")
++     system("cargo --version", wait = TRUE)
++   } else {
++     cat("Cargo not found on the path\n")
++   }
++   invisible()
++ }
+> print_cargo()
+>
