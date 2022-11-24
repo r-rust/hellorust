@@ -50,45 +50,31 @@ This is perfect for R because we can compile and link all rust code at build-tim
 
 ## Installing Rust on Linux / MacOS
 
-Note that `cargo` is only needed at __build-time__. Rust has __no runtime dependencies__. To install on MacOS use homebrew:
+Note that `cargo` is only needed at __build-time__. Rust has __no runtime dependencies__. The easiest way to install the latest version of Rust (including cargo) is from: https://www.rust-lang.org/tools/install
 
-```
-brew install rust
-```
+Alternatively, you may install cargo from your OS package manager:
 
-And on Debian/Ubuntu:
+ - Debian/Ubuntu: `sudo apt-get install cargo`
+ - Fedora/CentOS*: `sudo yum install cargo`
+ - MacOS: `brew install rustc`
 
-```
-sudo apt-get install cargo
-```
-
-And on Fedora / CentOS:
-
-```
-sudo yum install cargo
-```
-
-And on Arch:
-
-```
-sudo pacman -Sy cargo
-```
-
-On CentOS you first need to enable EPEL via `sudo yum install epel-release`.
+*Note that on CentOS you first need to enable EPEL via `sudo yum install epel-release`.
 
 ## Installing Rust for R on Windows
 
-In order for rust to work with R you need to install the toolchain using `rustup` and then add the `x86_64-pc-windows-gnu` and `i686-pc-windows-gnu` targets. First download [rustup-init.exe](https://win.rustup.rs/) and then install the default toolchain:
+In order for rust to work with R you need to install the toolchain using `rustup` and then add the `x86_64-pc-windows-gnu` target. First download [rustup-init.exe](https://win.rustup.rs/) and then install the default toolchain:
 
 ```
 rustup-init.exe -y --default-host x86_64-pc-windows-gnu
 ```
 
-To compile 32bit packages also add the i686 target:
+Or if rust is already installed (for example on GitHub actions), you can simply add the target:
 
 ```
-rustup target add i686-pc-windows-gnu
+rustup target add x86_64-pc-windows-gnu
 ```
+
+To compile 32bit packages also add the `i686-pc-windows-gnu` target, but 32-bit is no longer supported as of R 4.2.
 
 ## GitHub Actions
 
