@@ -2,15 +2,15 @@
 
 [![R build status](https://github.com/r-rust/hellorust/workflows/R-CMD-check/badge.svg)](https://github.com/r-rust/hellorust/actions?workflow=R-CMD-check)
 
-> Minimal Example of Calling Rust from R using Cargo
+> Minimal Examples of Using Rust Code in R
 
-Rust is a modern alternative to C and compiled rust code is ABI compatible with C. Many Rust libraries include C API headers so that the compiled rust code can be called from R/C/C++ as if it were C code.
+Rust is a modern alternative to C and compiled rust code is ABI compatible with C. Many Rust libraries include C API headers so that the compiled rust code can be called from R/C/C++ as if it were C code. This package shows how to do that.
 
 The [r-rust](https://github.com/r-rust) organization contains several example R packages interfacing with Rust. Also have a look at the [slides](https://jeroen.github.io/erum2018/) about this project presented at eRum2018!
 
 ## Package Structure
 
-We simply bundle the rust code into a cargo package (see the `Cargo.toml` file) and then the [src/Makevars](src/Makevars) file is written such that R will automatically build the rust modules when the R package is installed.
+Bundle your rust code in a the embedded cargo package (see the `Cargo.toml` file) and then the [src/Makevars](src/Makevars) file is written such that R will automatically build the rust modules when the R package is installed.
 
 ```
 hellorust

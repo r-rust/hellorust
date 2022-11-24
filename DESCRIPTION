@@ -4,12 +4,12 @@ Title: Minimal Examples of Using Rust Code in R
 Version: 1.0.9000
 Authors@R: person("Jeroen", "Ooms", role = c("aut", "cre"), email = "jeroen@berkeley.edu",
     comment = c(ORCID = "0000-0002-4035-0289"))
-Description: Template R package to use Rust code without any frameworks
-    in a way that complies with CRAN policy. Includes simple examples of
-    passing numbers and strings from Rust to R, and using threads. The 
-    GitHub repository shows how to set up CI on all platforms. This package
-    was presented at Erum2018 <https://jeroen.github.io/erum2018> and first
-    appeared on CRAN in 2022.
+Description: Template R package with minimal setup to use Rust code in R without
+    hacks or frameworks. Includes basic examples of importing cargo dependencies,
+    spawning threads and passing numbers or strings from Rust to R. The GitHub 
+    repository for this package shows how to configure CI. This package was 
+    first presented at Erum2018 <https://jeroen.github.io/erum2018>; for a real
+    world use case of this setup, see the 'gifski' package on CRAN.
 License: MIT + file LICENSE
 URL: https://github.com/r-rust/hellorust
 BugReports: https://github.com/r-rust/hellorust/issues
