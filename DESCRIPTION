@@ -7,9 +7,10 @@ Authors@R: person("Jeroen", "Ooms", role = c("aut", "cre"), email = "jeroen@berk
 Description: Template R package with minimal setup to use Rust code in R without
     hacks or frameworks. Includes basic examples of importing cargo dependencies,
     spawning threads and passing numbers or strings from Rust to R. The GitHub 
-    repository for this package shows how to configure CI. This package was 
-    first presented at Erum2018 <https://jeroen.github.io/erum2018>; for a real
-    world use case of this setup, see the 'gifski' package on CRAN.
+    repository for this package has more details and also explains how to set up
+    CI. This project was first presented at Erum2018 to showcase R-Rust integration
+    <https://jeroen.github.io/erum2018>; for a real world use-case, see the 
+    'gifski' package on CRAN.
 License: MIT + file LICENSE
 URL: https://github.com/r-rust/hellorust
 BugReports: https://github.com/r-rust/hellorust/issues
