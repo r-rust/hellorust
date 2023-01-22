@@ -95,6 +95,7 @@ The [gifski](https://cran.r-project.org/web/packages/gifski/index.html) package 
 However, do note that for the CRAN release we used a hack in `src/Makevars.win` to download a precompiled version of the gifski crate on Windows, because the CRAN winbuilder did not have a Rust compiler installed.
 
 ## More Resources
+ - [r-rust FAQ](https://github.com/r-rust/faq)
  - Erum2018 [slides](https://jeroen.github.io/erum2018/) about this project presented by Jeroen
  - [Rust Inside Other Languages](https://doc.rust-lang.org/1.6.0/book/rust-inside-other-languages.html) chapter from official rust documentation
  - [extendr](https://github.com/extendr): a more advanced R extension interface using Rust
