@@ -1,7 +1,7 @@
 TARGET = $(subst 64,x86_64,$(subst 32,i686,$(WIN)))-pc-windows-gnu
 LIBDIR = myrustlib/target/$(TARGET)/release
 STATLIB = $(LIBDIR)/libmyrustlib.a
-PKG_LIBS = -L$(LIBDIR) -lmyrustlib -lws2_32 -ladvapi32 -lgdi32 -lbcrypt -lcrypt32 -luserenv
+PKG_LIBS = -L$(LIBDIR) -lmyrustlib -lws2_32 -ladvapi32 -lgdi32 -lbcrypt -lcrypt32 -luserenv -lntdll
 
 all: clean rustup
 
