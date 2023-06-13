@@ -78,6 +78,8 @@ To compile 32bit packages also add the `i686-pc-windows-gnu` target, but 32-bit 
 
 ## GitHub Actions
 
+__Update 2023:__ This step is no longer needed because GitHub action runners now have the required Rust targets preinstalled by default.
+
 To use GitHub actions, you can use the [standard r workflow](https://github.com/r-lib/actions/blob/HEAD/.github/workflows/check-standard.yaml) script in combination with this extra step:
 
 ```
@@ -91,8 +93,6 @@ To use GitHub actions, you can use the [standard r workflow](https://github.com/
 ## In the real world
 
 The [gifski](https://cran.r-project.org/web/packages/gifski/index.html) package has been on CRAN since 2018, and uses this same structure. 
-
-However, do note that for the CRAN release we used a hack in `src/Makevars.win` to download a precompiled version of the gifski crate on Windows, because the CRAN winbuilder did not have a Rust compiler installed.
 
 ## More Resources
  - [r-rust FAQ](https://github.com/r-rust/faq)
