@@ -16,6 +16,6 @@ Description: Template R package with minimal setup to use Rust code in R without
 License: MIT + file LICENSE
 URL: https://github.com/r-rust/hellorust
 BugReports: https://github.com/r-rust/hellorust/issues
-SystemRequirements: Cargo (rustc package manager)
+SystemRequirements: Cargo (Rust's package manager), rustc
 Encoding: UTF-8
 RoxygenNote: 7.2.1
