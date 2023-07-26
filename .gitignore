@@ -6,3 +6,5 @@ src/*.so
 src/*.dll
 src/*.a
 src/myrustlib/target/*
+src/myrustlib/vendor.tar.xz
+src/myrustlib/vendor/*
