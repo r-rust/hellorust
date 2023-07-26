@@ -32,7 +32,7 @@ hellorust
 __Update 2023:__ as per the new [cran guidelines](https://cran.r-project.org/web/packages/using_rust.html) we now vendor the cargo crates by default in the R source package. This is done in a two step process:
 
  1. The [vendor-update.sh](src/myrustlib/vendor-update.sh) script creates the `vendor.tar.xz` bundle that contains all the cargo sources. By invoking this script in [cleanup](cleanup) this is run automatically before every `R CMD build`.
- 2. At install time, the [Makevars](src/Makevars) extracts the `vendor.tar.xz` bundle and generates a `.cargo/config.toml` file to instructs `cargo build` to use the vendored (offline) sources.
+ 2. At install time, the [Makevars](src/Makevars) extracts the `vendor.tar.xz` bundle and generates a `.cargo/config.toml` file to instruct `cargo build` to use the vendored (offline) sources.
 
 ## Installing this package
 
