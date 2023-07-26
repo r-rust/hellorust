@@ -1,2 +1,5 @@
+1.1.0
+ - Vendor cargo sources to comply with new CRAN guidlines
+
 1.0.2
  - Windows: add -lntdll to PKG_LIBS as needed by Rust 1.70 and up

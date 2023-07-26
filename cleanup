@@ -1,0 +1,3 @@
+#!/bin/sh
+cd src/myrustlib
+./vendor-update.sh
