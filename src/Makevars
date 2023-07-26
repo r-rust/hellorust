@@ -16,7 +16,7 @@ export CARGO_HOME=$(CARGOTMP)
 $(STATLIB):
 	mkdir -p $(CARGO_HOME)
 	tar xf myrustlib/vendor.tar.xz
-	cp vendor-config.toml $(CARGO_HOME)/config.toml
+	cp myrustlib/vendor-config.toml $(CARGO_HOME)/config.toml
 	PATH="${PATH}:${HOME}/.cargo/bin" cargo build --offline --release --manifest-path=myrustlib/Cargo.toml
 	rm -Rf $(CARGOTMP) vendor || true # CRAN wants us to remove "detritus"
 	rm -Rf $(LIBDIR)/build || true

@@ -1,5 +1,4 @@
 #!/bin/sh
-cd myrustlib
 rm -Rf vendor vendor.tar.xz
 cargo vendor
 tar -cJ --no-xattrs -f vendor.tar.xz vendor
