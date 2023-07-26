@@ -2,8 +2,9 @@ Package: hellorust
 Type: Package
 Title: Minimal Examples of Using Rust Code in R
 Version: 1.1.0
-Authors@R: person("Jeroen", "Ooms", role = c("aut", "cre"), email = "jeroen@berkeley.edu",
-    comment = c(ORCID = "0000-0002-4035-0289"))
+Authors@R: c(person("Jeroen", "Ooms", role = c("aut", "cre"), email = "jeroen@berkeley.edu",
+    comment = c(ORCID = "0000-0002-4035-0289")),
+      person("Authors of the dependency Rust crates", role = "cph", comment = "see AUTHORS file"))
 Description: Template R package with minimal setup to use Rust code in R without
     hacks or frameworks. Includes basic examples of importing cargo dependencies,
     spawning threads and passing numbers or strings from Rust to R. The GitHub 
