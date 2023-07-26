@@ -1,3 +1,4 @@
 #!/bin/sh
+export PATH="$HOME/.cargo/bin:$PATH"
 cd src/myrustlib
 ./vendor-update.sh
