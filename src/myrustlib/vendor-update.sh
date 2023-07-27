@@ -4,5 +4,3 @@ cargo vendor
 tar -cJ --no-xattrs -f vendor.tar.xz vendor
 rm -Rf vendor
 
-# Update ../inst/AUTHORS
-Rscript vendor-authors.R

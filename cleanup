@@ -2,3 +2,6 @@
 export PATH="$HOME/.cargo/bin:$PATH"
 cd src/myrustlib
 ./vendor-update.sh
+
+# Update ../inst/AUTHORS
+${R_HOME}/bin/Rscript vendor-authors.R
