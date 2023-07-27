@@ -27,14 +27,14 @@ hellorust
 └─ R                    ← Standard R+C stuff
 ```
 
-## Vendoring
+## Vendoring (new)
 
-__Update 2023:__ as per the new [cran guidelines](https://cran.r-project.org/web/packages/using_rust.html) we now vendor the cargo crates by default in the R source package. This is done in a two step process:
+As per the new [2023 cran guidelines](https://cran.r-project.org/web/packages/using_rust.html) we now vendor the cargo crates in the R source packages in order to support offline installation. This is done in a two step process:
 
- 1. The [vendor-update.sh](src/myrustlib/vendor-update.sh) script creates the `vendor.tar.xz` bundle that contains all the cargo sources. By invoking this script in [cleanup](cleanup) this is run automatically before every `R CMD build`.
- 2. At install time, the [Makevars](src/Makevars) extracts the `vendor.tar.xz` bundle and generates a `.cargo/config.toml` file to instruct `cargo build` to use the vendored (offline) sources.
+ 1. (by package author) The [vendor-update.sh](src/myrustlib/vendor-update.sh) script creates the `vendor.tar.xz` bundle that contains all the cargo sources. In addition, the [vendor-authors.R](src/myrustlib/vendor-authors.R) script generates an `inst/AUTHORS` file that lists the authors of the dependencies, as required by CRAN. Both of these scripts are called in the package [cleanup](cleanup) file and therefore run automatically during `R CMD build` when the source package is created.
+ 2. (by the user) At install time, the [Makevars](src/Makevars) extracts the `vendor.tar.xz` bundle (when available) and generates a `.cargo/config.toml` file to instruct `cargo build` to use the vendored (offline) sources.
  
-If you run `R CMD INSTALL` directly from a checkout (without building a source package), then no `vendor.tar.xz` is created and cargo crates are still downloaded on-the-fly.
+If you run `R CMD INSTALL` directly from a checkout (without building a source package), then no `vendor.tar.xz` is created and cargo falls back to downloading crates on-the-fly.
 
 You can test or force the use of vendored sources by passing `--offline` to `cargo build`.
 
