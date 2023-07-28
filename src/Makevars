@@ -10,10 +10,8 @@ $(SHLIB): $(STATLIB)
 # CRAN policy forbids using $HOME so we build in the current working dir.
 # This makes things really slow because we have to reinstall all dependencies.
 CARGOTMP=$(PWD)/.cargo
-ifeq ($(NOT_CRAN),)
 export CARGO_HOME=$(CARGOTMP)
 export CARGO_BUILD_JOBS=2
-endif
 
 $(STATLIB):
 	if [ -f myrustlib/vendor.tar.xz ]; then tar xf myrustlib/vendor.tar.xz && mkdir -p $(CARGOTMP) && cp myrustlib/vendor-config.toml $(CARGOTMP)/config.toml; fi
