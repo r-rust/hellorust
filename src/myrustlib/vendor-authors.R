@@ -6,4 +6,5 @@ packages <- subset(packages, sapply(packages$authors, length) > 0 & name != 'myr
 authors <- vapply(packages$authors, function(x) paste(sub(" <.*>", "", x), collapse = ', '), character(1))
 lines <- sprintf(" - %s %s: %s", packages$name, packages$version, authors)
 dir.create('../../inst', showWarnings = FALSE)
-writeLines(c('Authors of vendored cargo crates', lines), '../../inst/AUTHORS')
+footer <- sprintf("\n(This file was auto-generated from 'cargo metadata' on %s)", Sys.Date())
+writeLines(c('Authors of vendored cargo crates', lines, footer), '../../inst/AUTHORS')
