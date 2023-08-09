@@ -1,3 +1,7 @@
+1.1.1
+ - CRAN request: use role="aut" for rust dependencies
+ - CRAN request: use -j2 instead of CARGO_BUILD_JOBS=2
+
 1.1.0
  - Vendor cargo sources to comply with new CRAN guidlines
 
