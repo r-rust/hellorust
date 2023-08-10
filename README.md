@@ -27,7 +27,7 @@ hellorust
 └─ R                    ← Standard R+C stuff
 ```
 
-## Vendoring (new)
+## Vendoring
 
 As per the new [2023 cran guidelines](https://cran.r-project.org/web/packages/using_rust.html) we now vendor the cargo crates in the R source packages in order to support offline installation. This is done in a two step process:
 
