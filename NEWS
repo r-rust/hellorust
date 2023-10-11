@@ -1,3 +1,6 @@
+1.2.0
+ - Windows: support aarch64-pc-windows-gnullvm
+
 1.1.1
  - CRAN request: use role="aut" for rust dependencies
  - CRAN request: use -j2 instead of CARGO_BUILD_JOBS=2
