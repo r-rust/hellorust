@@ -7,7 +7,11 @@
 
 // Actual Wrappers
 SEXP hello_wrapper(void){
-  return Rf_ScalarString(Rf_mkCharCE(string_from_rust(), CE_UTF8));
+  char* hello_rust = string_from_rust();
+  SEXP hello_world_string = PROTECT(Rf_mkCharCE(hello_rust, CE_UTF8));
+  free_string_from_rust(hello_rust);
+  UNPROTECT(1);
+  return Rf_ScalarString(hello_world_string);
 }
 
 SEXP random_wrapper(void){
