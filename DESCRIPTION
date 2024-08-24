@@ -1,7 +1,7 @@
 Package: hellorust
 Type: Package
 Title: Minimal Examples of Using Rust Code in R
-Version: 1.2.0
+Version: 1.2.1
 Authors@R: c(person("Jeroen", "Ooms", role = c("aut", "cre"), email = "jeroen@berkeley.edu",
     comment = c(ORCID = "0000-0002-4035-0289")),
       person("Authors of the dependency Rust crates", role = "aut", comment = "see AUTHORS file"))

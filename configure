@@ -2,6 +2,7 @@
 export PATH="$PATH:$HOME/.cargo/bin"
 if [ $(command -v cargo) ]; then
   cargo --version
+  rustc --version || true
 else
   echo "----------------------- [RUST NOT FOUND]---------------------------"
   echo "The 'cargo' command was not found on the PATH. Please install rustc"
