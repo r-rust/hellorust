@@ -1,5 +1,6 @@
 1.2.1
  - Print rustc --version in configure as per CRAN request
+ - Update maintainer email address
 
 1.2.0
  - Windows: support aarch64-pc-windows-gnullvm
