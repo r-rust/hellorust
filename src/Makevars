@@ -14,7 +14,7 @@ $(SHLIB): $(STATLIB)
 # You can comment these things out if you do not submit to CRAN.
 CRANFLAGS=-j 2
 CARGOTMP=$(PWD)/.cargo
-#export CARGO_HOME=$(CARGOTMP)
+export CARGO_HOME=$(CARGOTMP)
 
 $(STATLIB):
 	if [ -f myrustlib/vendor.tar.xz ]; then tar xf myrustlib/vendor.tar.xz && mkdir -p $(CARGOTMP) && cp myrustlib/vendor-config.toml $(CARGOTMP)/config.toml; fi

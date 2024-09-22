@@ -1,3 +1,6 @@
+1.2.2
+ - Fix commented out CARGO_HOME in Makevars
+
 1.2.1
  - Print rustc --version in configure as per CRAN request
  - Update maintainer email address
