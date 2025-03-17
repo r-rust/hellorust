@@ -4,7 +4,7 @@ STATLIB = $(LIBDIR)/libmyrustlib.a
 PKG_CPPFLAGS = -DSTRICT_R_HEADERS -DR_NO_REMAP
 PKG_LIBS = -L$(LIBDIR) -lmyrustlib -lws2_32 -ladvapi32 -lgdi32 -lbcrypt -lcrypt32 -luserenv -lntdll
 
-all: clean rustup
+all: $(SHLIB) cleanup
 
 $(SHLIB): $(STATLIB)
 
@@ -12,8 +12,5 @@ $(STATLIB):
 	if [ -f myrustlib/vendor.tar.xz ]; then tar xf myrustlib/vendor.tar.xz && mkdir -p .cargo && cp myrustlib/vendor-config.toml .cargo/config.toml; fi
 	PATH="$(USERPROFILE)\.cargo\bin:$(PATH)" cargo build --target=$(TARGET) --release --manifest-path=myrustlib/Cargo.toml
 
-clean:
-	rm -Rf $(SHLIB) $(STATLIB) $(OBJECTS) myrustlib/target
-
-rustup:
-	rustup target add $(TARGET) || true
+cleanup:
+	rm -Rf $(STATLIB) myrustlib/target

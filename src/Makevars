@@ -4,7 +4,7 @@ PKG_CFLAGS = -pthread
 PKG_CPPFLAGS = -DSTRICT_R_HEADERS -DR_NO_REMAP
 PKG_LIBS = -L$(LIBDIR) -lmyrustlib -lresolv -pthread
 
-#all: clean
+all: $(SHLIB) cleanup
 
 $(SHLIB): $(STATLIB)
 
@@ -22,5 +22,5 @@ $(STATLIB):
 	rm -Rf $(CARGOTMP) vendor || true # CRAN wants us to remove "detritus"
 	rm -Rf $(LIBDIR)/build || true
 
-clean:
-	rm -Rf $(SHLIB) $(STATLIB) $(OBJECTS) myrustlib/target
+cleanup: $(SHLIB)
+	rm -Rf $(STATLIB) myrustlib/target
