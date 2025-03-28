@@ -4,7 +4,7 @@ STATLIB = $(LIBDIR)/libmyrustlib.a
 PKG_CPPFLAGS = -DSTRICT_R_HEADERS -DR_NO_REMAP
 PKG_LIBS = -L$(LIBDIR) -lmyrustlib -lws2_32 -ladvapi32 -lgdi32 -lbcrypt -lcrypt32 -luserenv -lntdll
 
-all: $(SHLIB) cleanup
+all: cleanup
 
 $(SHLIB): $(STATLIB)
 
