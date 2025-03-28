@@ -4,7 +4,7 @@ PKG_CFLAGS = -pthread
 PKG_CPPFLAGS = -DSTRICT_R_HEADERS -DR_NO_REMAP
 PKG_LIBS = -L$(LIBDIR) -lmyrustlib -lresolv -pthread
 
-all: $(SHLIB) cleanup
+all: cleanup
 
 $(SHLIB): $(STATLIB)
 
