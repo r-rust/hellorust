@@ -23,4 +23,4 @@ $(STATLIB):
 	rm -Rf $(LIBDIR)/build || true
 
 cleanup: $(SHLIB)
-	rm -Rf $(STATLIB) myrustlib/target
+	@rm -Rf $(STATLIB) myrustlib/target
