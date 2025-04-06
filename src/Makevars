@@ -19,8 +19,9 @@ export CARGO_HOME=$(CARGOTMP)
 $(STATLIB):
 	if [ -f myrustlib/vendor.tar.xz ]; then tar xf myrustlib/vendor.tar.xz && mkdir -p $(CARGOTMP) && cp myrustlib/vendor-config.toml $(CARGOTMP)/config.toml; fi
 	PATH="${PATH}:${HOME}/.cargo/bin" cargo build ${CRANFLAGS} --release --manifest-path=myrustlib/Cargo.toml
-	rm -Rf $(CARGOTMP) vendor || true # CRAN wants us to remove "detritus"
-	rm -Rf $(LIBDIR)/build || true
+	@$(STRIP_STATIC_LIB) $(STATLIB) || true
+	@rm -Rf $(CARGOTMP) vendor || true # CRAN wants us to remove "detritus"
+	@rm -Rf $(LIBDIR)/build || true
 
 cleanup: $(SHLIB)
 	@rm -Rf $(STATLIB) myrustlib/target
