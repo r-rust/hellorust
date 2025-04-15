@@ -40,6 +40,9 @@ jobs:
         run: |
           curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > tmp.sh
           sh ./tmp.sh -y --profile minimal --target aarch64-pc-windows-gnullvm
+          rm tmp.sh
+
+          # make cargo available on R CMD check
           echo ${HOME}/.cargo/bin >> $GITHUB_PATH
         shell: bash
 
