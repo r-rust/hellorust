@@ -31,19 +31,7 @@ jobs:
 
     steps:
       - name: Add more rust targets
-        if: ${{ runner.os == 'windows' && runner.arch == 'X64' }}
         run: rustup target add x86_64-pc-windows-gnu
-      
-      - name: Install Rust on Arm Windows
-        if: ${{ runner.os == 'windows' && runner.arch == 'ARM64' }}
-        run: |
-          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > tmp.sh
-          sh ./tmp.sh -y --profile minimal --target aarch64-pc-windows-gnullvm
-          rm tmp.sh
-
-          # make cargo available on R CMD check
-          echo ${HOME}/.cargo/bin >> $GITHUB_PATH
-        shell: bash
 
       - uses: actions/checkout@v3
 
