@@ -31,6 +31,7 @@ jobs:
 
     steps:
       - name: Add more rust targets
+        if: runner.os == 'windows'
         run: rustup target add x86_64-pc-windows-gnu
 
       - uses: actions/checkout@v3
