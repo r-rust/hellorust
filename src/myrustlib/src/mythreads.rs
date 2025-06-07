@@ -2,7 +2,7 @@ use std::thread;
 use std::time::Duration;
 
 #[no_mangle]
-pub extern fn run_threads() {
+pub extern "C" fn run_threads() {
     thread::spawn(|| {
         for i in 1..10 {
             println!("hi number {} from the spawned thread!", i);
