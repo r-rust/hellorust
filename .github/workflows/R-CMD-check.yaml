@@ -24,6 +24,7 @@ jobs:
           - { os: ubuntu-latest,    r: 'release'  }
           - { os: ubuntu-latest,    r: 'oldrel-1' }
           - { os: ubuntu-24.04-arm, r: 'release'  }
+          - { os: windows-11-arm,   r: 'release'  }
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -31,8 +32,8 @@ jobs:
 
     steps:
       - name: Add more rust targets
-        if: runner.os == 'windows'
-        run: rustup target add x86_64-pc-windows-gnu
+        if: ${{ runner.os == 'windows' && runner.arch == 'ARM64' }}
+        run: rustup target add aarch64-pc-windows-gnullvm
 
       - uses: actions/checkout@v3
 
