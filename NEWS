@@ -1,3 +1,6 @@
+1.2.4
+ - Fix emscripten build by removing -pthread from PKG_LIBS
+
 1.2.3
  - Fix parallel make; more cleanup after build
 

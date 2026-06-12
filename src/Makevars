@@ -2,6 +2,8 @@ LIBDIR = myrustlib/target/release
 STATLIB = $(LIBDIR)/libmyrustlib.a
 PKG_CFLAGS = -pthread
 PKG_CPPFLAGS = -DSTRICT_R_HEADERS -DR_NO_REMAP
+
+# Using -pthread in PKG_LIBS fails on emscripten (2026)
 PKG_LIBS = -L$(LIBDIR) -lmyrustlib
 
 all: cleanup
