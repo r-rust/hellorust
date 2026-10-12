@@ -17,25 +17,24 @@ jobs:
       matrix:
         config:
           - { os: macos-latest,     r: 'release'  }
-          - { os: macos-15,         r: 'next'     }
+          - { os: macos-26-intel,   r: 'next'     }
           - { os: windows-latest,   r: 'release'  }
           - { os: windows-latest,   r: 'devel'    }
           - { os: ubuntu-latest,    r: 'devel', http-user-agent: 'release' }
           - { os: ubuntu-latest,    r: 'release'  }
           - { os: ubuntu-latest,    r: 'oldrel-1' }
-          - { os: ubuntu-24.04-arm, r: 'release'  }
+          - { os: ubuntu-26.04-arm, r: 'release'  }
           - { os: windows-11-arm,   r: 'release'  }
+          - { os: windows-11-arm,   r: 'next'     }
+          - { os: windows-11-arm,   r: 'devel'    }
+
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       R_KEEP_PKG_SOURCE: yes
 
     steps:
-      - name: Add more rust targets
-        if: ${{ runner.os == 'windows' && runner.arch == 'ARM64' }}
-        run: rustup target add aarch64-pc-windows-gnullvm
-
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v7
 
       - uses: r-lib/actions/setup-pandoc@v2
 
@@ -49,6 +48,7 @@ jobs:
         with:
           extra-packages: any::rcmdcheck
           needs: check
+          pak-version: devel
 
       - uses: r-lib/actions/check-r-package@v2
         with:
